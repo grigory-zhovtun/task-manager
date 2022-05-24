@@ -1,0 +1,50 @@
+.Wrapper {
+    text-align: center;
+    width: 100%;
+    margin-top: 34px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #1F1B44;
+}
+
+.Wrapper span {
+    display: inline-block;
+    margin-top: 14px;
+    text-transform: uppercase;
+}
+
+.PlusListButton {
+    margin: 0 auto;
+    width: 53px;
+    height: 53px;
+    position: relative;
+    cursor: pointer;
+}
+
+.PlusListButton:hover {
+    opacity: 60%;
+}
+
+.PlusListButton:before {
+    content: '';
+    display: block;
+    width: 53px;
+    height: 2px;
+    background-color: #1F1B44;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.PlusListButton:after {
+    content: '';
+    display: block;
+    width: 2px;
+    height: 53px;
+    background-color: #1F1B44;
+    position: absolute;
+    left: 50%;
+    z-index: 999;
+    transform: translateX(-50%);
+}

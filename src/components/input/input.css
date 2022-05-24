@@ -1,0 +1,15 @@
+.Input {
+    background-color: #1F1B44;
+    width: 180px;
+    height: 20px;
+    border: 0;
+    color: #A5A5A5;
+    border-bottom: 2px #A5A5A5 solid;
+    margin-left: 48px;
+    margin-top: 10px;
+}
+
+.Input:active, :hover, :focus {
+    outline: 0;
+    outline-offset: 0;
+}
