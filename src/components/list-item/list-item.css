@@ -3,7 +3,12 @@
     grid-template-columns: 20px 1fr 20px;
     margin-right: 41px;
     margin-top: 14px;
-    border: 1px dotted #A5A5A5; 
+
+}
+
+.ListItem:hover {
+    /*border-bottom: 1px dotted #A5A5A5;*/
+    opacity: 70%;
 }
 
 .ListItem input {

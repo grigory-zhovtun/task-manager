@@ -1,10 +1,11 @@
 .TodoList {
     width: 308px;
-    height: 210px;
+    min-height: 210px;
     color: #A5A5A5;
     background: linear-gradient(114.5deg, #1F1B44 52.17%, rgba(31, 27, 68, 0) 291.02%);
     filter: drop-shadow(3px 8px 30px rgba(0, 0, 0, 0.7));
     border-radius: 10px;
+    padding-bottom: 30px;
 }
 
 .TodoListTitle {
