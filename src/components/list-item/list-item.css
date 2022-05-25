@@ -1,0 +1,18 @@
+.ListItem {
+    display: grid;
+    grid-template-columns: 20px 1fr 20px;
+    margin-right: 41px;
+    margin-top: 14px;
+    border: 1px dotted #A5A5A5; 
+}
+
+.ListItem input {
+    width: 17px;
+    height: 17px;
+    background: #FFFFFF;
+    border-radius: 3px;
+}
+
+.ListItem span {
+    margin-left: 17px;
+}

@@ -15,5 +15,13 @@
     padding-left: 48px;
 }
 
+.AddTasksWrapper {
+    display: flex;
+    position: relative;
+}
 
-
+.ListItemsWrapper {
+    
+    margin-left: 48px;
+    margin-top: 10px;
+}
