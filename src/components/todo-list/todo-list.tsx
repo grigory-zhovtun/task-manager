@@ -6,21 +6,24 @@ import {ListItem} from '../list-item/list-item';
 import {TaskType} from "../app/App";
 
 type PropsType = {
+    todoListID: string
     title: string
     tasks: Array<TaskType>
-    deleteTask: (id: string) => void
+    removeTodoList: (todoListID: string) => void
+    removeTask: (id: string, todoListID: string) => void
     inputHandler: (taskName: string) => void
-    addTaskHandler: () => void
-    changeTaskStatus: (taskID: string, taskStatus: boolean) => void
+    addTaskHandler: (todoListID: string) => void
+    changeTaskStatus: (taskID: string, taskStatus: boolean, todoListID: string) => void
 }
 
-export const TodoList = ({
+export const TodoList = ({   todoListID,
                              title,
                              tasks,
-                             deleteTask,
+                             removeTask,
                              inputHandler,
                              addTaskHandler,
-                             changeTaskStatus
+                             changeTaskStatus,
+                             removeTodoList
                          }: PropsType) => {
     return (
         <div className="TodoList">
@@ -34,10 +37,10 @@ export const TodoList = ({
             <div className="ListItemsWrapper">
                 {tasks.map(task => {
                     const deleteTaskHandler = () => {
-                        deleteTask(task.id)
+                        removeTask(task.id, todoListID)
                     }
                     const onChangeCheckboxHandler = (taskStatus: boolean) => {
-                        changeTaskStatus(task.id, taskStatus)
+                        changeTaskStatus(task.id, taskStatus, todoListID)
                     }
                     return (
                         <ListItem   key={task.id}

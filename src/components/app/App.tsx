@@ -47,32 +47,55 @@ export const App = () => {
             
     })
 
-    const deleteTask = (id: string, todoListID: string) => {
-        let filteredTasks = tasks.filter(t => t.id !== id);
-        setTasks(filteredTasks);
-    }
     const [newTaskName, setNewTaskName] = useState('')
+
+    const removeTask = (id: string, todoListID: string) => {
+        const currentTodoListTasks = tasks[todoListID];
+        const updateTasks = currentTodoListTasks.filter(t => t.id !== id);
+        tasks[todoListID] = updateTasks;
+        setTasks({...tasks});
+    }   
     const inputHandler = (taskName: string) => {
         setNewTaskName(taskName)
     }
-    const addTask = (todoListID: string) => {
+    const addTask = (todoListID: string) => { 
         const newTask = {id: v1(), taskName: newTaskName, isDone: false}
-        setTasks([newTask, ...tasks])
+        const currentTodoListTasks = tasks[todoListID];
+        const updateTasks = [newTask, ...currentTodoListTasks]
+        setTasks({...tasks, [todoListID]: updateTasks})
     }
     const changeTaskStatus = (id: string, isDone: boolean, todoListID: string) => {
-        setTasks(tasks.map(t => t.id === id ? {...t, isDone} : t))
+        const currentTodoListTasks = tasks[todoListID];
+        const updateTasks = currentTodoListTasks.map(t => t.id === id ? {...t, isDone} : t)
+        tasks[todoListID] = updateTasks;
+        setTasks({...tasks});
     }
+    const removeTodoList = (todoListID: string) => {
+        setTodoLists(todoLists.filter(tl => tl.id !== todoListID));
+        delete tasks[todoListID];
+    }
+
+    const todoListsComponents = todoLists.map(tl => {
+        return (
+            <TodoList   key={tl.id}
+                        todoListID={tl.id}
+                        title={tl.title}
+                        tasks={tasks[tl.id]}
+                        removeTodoList={removeTodoList}
+                        addTaskHandler={addTask}
+                        removeTask={removeTask}
+                        inputHandler={inputHandler}
+                        changeTaskStatus={changeTaskStatus}
+            />
+        )
+    })
 
     return (
         <div className="App">
             <AddNewListButton title={"New list"}/>
-            <TodoList   title={'Shopping'}
-                        addTaskHandler={addTask}
-                        tasks={tasks}
-                        deleteTask={deleteTask}
-                        inputHandler={inputHandler}
-                        changeTaskStatus={changeTaskStatus}
-            />
+            <div className="TodoListsWrapper">
+                {todoListsComponents}
+            </div>
         </div>
     );
 }

@@ -3,3 +3,10 @@
     width: 1110px;
     min-height: 100vh;
 }
+
+.TodoListsWrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 308px);
+    grid-template-rows: minmax(210px, auto);
+    gap: 10px;
+}

@@ -4,7 +4,7 @@ import {AddTaskButton} from "../add-new-task-button/add-new-task-button";
 
 type PropsType = {
     inputHandler: (taskName: string) => void
-    addTaskHandler: (inputValue: string) => void
+    addTaskHandler: (inputValue: string, todoListID: string) => void
 }
 
 export const Input = ({inputHandler, addTaskHandler}:PropsType) => {
